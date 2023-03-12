@@ -1,0 +1,63 @@
+Day4: Fundamentals of Cyber Security.
+
+Task1: Job Interview answer/CCNA 18%
+NetEng, CyberOPs, CyberAnalyst: 
+
+
+
+
+Task 2: The 4rd lab on the exam!
+ssh secure shell: 
+
+
+conf t
+ip domain-name rivanit.com
+crypto key generate rsa
+
+ip ssh version 2
+
+
+
+
+Task3: How to get a perfert score on the CCNA Lab
+DHCP, NAT, ACCESS-LIST, SSH, N.T.P:
+
+conf t
+no logging console
+int gi 3
+ip add dhcp
+no shut
+
+192.168.108.134 (telnet PerfectLab)
+
+Task4: MASTER DHCP WITH LINUX CLIENTS: 
+@perfectLAB:
+conf t 
+int gi 1
+ip add 192.168.101.7 255.255.255.0
+description DITOkabitLINUX1
+no shut
+int gi 2
+ip add 192.168.102.7 255.255.255.0
+description DITOkabitLINUX2
+no shut
+do sh ip int brief
+
+@dhcpserver for LINUX1:
+conf t
+ip dhcp excluded-add 192.168.101.1 192.168.101.120
+ip dhcp excluded-add 192.168.102.1 192.168.102.120
+
+ip dhcp pool LINUX1
+network 192.168.101.0 255.255.255.0
+default-router 192.168.101.7
+domain-name linux1.com
+dns-server 8.8.8.8
+
+ip dhcp pool LINUX2
+network 192.168.102.0 255.255.255.0
+default-router 192.168.102.7
+domain-name linux2.com
+dns-server 8.8.8.8
+
+

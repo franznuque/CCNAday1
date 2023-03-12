@@ -1,0 +1,22 @@
+Franz (Day4)
+Answer:
+
+conf t 
+no access-list 108
+access-list 108 permit tcp host 192.168.101.1 host 192.168.101.7 EQ 80
+access-list 108 permit tcp host 192.168.101.1 host 192.168.101.7 EQ 53
+access-list 108 permit tcp host 192.168.101.1 host 192.168.101.7 EQ 22
+
+
+access-list 108 permit icmp host 192.168.101.21 host 192.168.101.7 
+access-list 108 permit tcp host 192.168.101.21 host 192.168.101.7 EQ 443
+
+access-list 108 permit tcp host 192.168.101.22 host 192.168.101.7 EQ 22
+access-list 108 permit tcp host 192.168.101.22 host 192.168.101.7 EQ 23
+
+access-list 108 permit tcp host 192.168.101.23 host 192.168.101.7 EQ 80
+access-list 108 permit tcp host 192.168.101.23 host 192.168.101.7 EQ 443
+
+int Gi 1
+ip access-group 108 in
+do sh ip access-list 108
